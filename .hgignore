@@ -1,3 +1,4 @@
 syntax: glob
 .idea/misc.xml
 .idea/workspace.xml
+out/
