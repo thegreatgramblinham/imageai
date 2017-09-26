@@ -1,13 +1,13 @@
 package sStudio2.Imaging;
 
 import sStudio2.Imaging.Converters.BinaryImageConverter;
-import sStudio2.Imaging.Converters.ImageData;
+import sStudio2.Imaging.Converters.IImageConverter;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        BinaryImageConverter bic = new BinaryImageConverter();
-        ImageData imageData = bic.convert("resources/lensflareCarl.jpg");
+        IImageConverter bic = new BinaryImageConverter();
+        bic.convert("resources/lensflareCarl.jpg", "out/binaryCarl.png");
     }
 }
