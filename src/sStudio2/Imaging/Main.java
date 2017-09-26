@@ -9,5 +9,6 @@ public class Main {
 
         IImageConverter bic = new BinaryImageConverter();
         bic.convert("resources/lensflareCarl.jpg", "out/binaryCarl.png");
+        bic.convert("resources/captchaGrid.png", "out/binarycaptchaGrid.png");
     }
 }
