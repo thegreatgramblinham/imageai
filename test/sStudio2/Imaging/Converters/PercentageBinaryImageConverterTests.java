@@ -9,17 +9,16 @@ import sStudio2.Imaging.TestConstants;
 
 import java.io.File;
 
-public class BinaryImageConverterTests {
-
+public class PercentageBinaryImageConverterTests {
     //Private Constants
-    private static final String CARL_OUTPUT = "out/binaryCarl.png";
-    private static final String CAPTCHAGRID_OUTPUT = "out/binaryCaptchaGrid.png";
+    private static final String CARL_OUTPUT = "out/percentBinaryCarl.png";
+    private static final String CAPTCHAGRID_OUTPUT = "out/percentBinaryCaptchaGrid.png";
 
     //Private Variables
     IImageConverter _binaryImageConverter;
 
     //Constructor
-    public BinaryImageConverterTests() {
+    public PercentageBinaryImageConverterTests() {
 
     }
 
@@ -27,7 +26,7 @@ public class BinaryImageConverterTests {
     @Before
     public void setup() {
 
-        _binaryImageConverter = new BinaryImageConverter();
+        _binaryImageConverter = new PercentageBinaryImageConverter();
     }
 
     //Test Methods
@@ -53,9 +52,7 @@ public class BinaryImageConverterTests {
         int[] colorArr = img.getIntColorArray();
         for(int i = 0; i < colorArr.length; i++)
         {
-            boolean cond = colorArr[i] == -16777216 || //white
-                           colorArr[i] == -1;         //black
-
+            boolean cond = true;
             if(!cond)
                 System.out.println("Invalid Color: "+colorArr[i]);
 
@@ -65,5 +62,4 @@ public class BinaryImageConverterTests {
         File outputFile = new File(output);
         Assert.assertTrue(outputFile.isFile());
     }
-
 }
