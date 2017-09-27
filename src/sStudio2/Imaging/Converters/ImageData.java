@@ -1,7 +1,6 @@
 package sStudio2.Imaging.Converters;
 
 
-import java.awt.*;
 import java.util.ArrayList;
 
 public class ImageData<T> {
