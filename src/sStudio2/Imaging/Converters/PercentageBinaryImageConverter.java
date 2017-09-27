@@ -56,7 +56,7 @@ public class PercentageBinaryImageConverter implements IImageConverter {
                 int b = _image.getIntComponent2(i,j);
                 int total = r + g + b;
                 float avg = (float)total/3.0f;
-                float percent = avg/(float)255;
+                float percent = avg/255.0f;
                 imgData.set(i,j, percent);
             }
         }
