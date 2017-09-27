@@ -32,11 +32,11 @@ public class BinaryImageConverter implements IImageConverter {
         _imgPath = imgPath;
         ImageData<Boolean> data = run();
 
-        MarvinImage img = new MarvinImage(_image.getWidth(),_image.getHeight());
+        MarvinImage img = new MarvinImage(data.getWidth(),data.getHeight());
         img.setColorModel(0);
         img.allocColorArray();
-        for(int i = 0; i < _image.getWidth(); i++)
-            for(int j = 0; j < _image.getHeight(); j++)
+        for(int i = 0; i < data.getWidth(); i++)
+            for(int j = 0; j < data.getHeight(); j++)
                 img.setIntColor(i, j,
                         data.get(i,j) ? 255 : 0,
                         data.get(i,j) ? 255 : 0,
