@@ -1,37 +1,32 @@
 package sStudio2.Imaging.Network;
 
-import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Base for a node representing a single neuron. Where:
- * T = Input type - Collection
+ * T = Input type
  * U = Output type
  *
  * Based off of this article: https://medium.com/technology-invention-and-more/how-to-build-a-simple-neural-network-in-9-lines-of-python-code-cc8f23647ca1
  */
-public abstract class NeuralNode<T extends Collection, U> {
+public abstract class NeuralNode<T, U> {
 
     //Private Variables
-    HashMap<T, U> _domainRangeMapping;
+    protected HashMap<T, Float> _domainMemberToWeight;
 
     //Constructor
     /**
-     * Base constructor
-     * @param domainRangeMapping Starting domain paired with appropriate outputs serving
-     *                           as a knowledge base for training.
+     * Base Constructor
+     * @param weightedDomain The set of discrete inputs with their required starting weights.
      */
-    protected NeuralNode(HashMap<T,U> domainRangeMapping) {
+    protected NeuralNode(HashMap<T, Float> weightedDomain) {
 
+        _domainMemberToWeight = weightedDomain;
     }
 
     //Abstract Methods
     public abstract U eval(T input);
-
-    //Private Methods
-    protected void train(T input) {
-
-
-    }
+    public abstract void train(List<T> input, U output);
 
 }
