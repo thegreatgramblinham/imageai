@@ -1,7 +1,7 @@
 package sStudio2.Imaging.Network.GlyphNeurons.UpperCaseLatin;
 
 
-import sStudio2.Imaging.Network.GlyphNeurons.GlyphMark;
+import sStudio2.Imaging.Network.GlyphNeurons.Support.GlyphMark;
 import sStudio2.Imaging.Network.NeuralNode;
 
 import java.util.HashMap;
