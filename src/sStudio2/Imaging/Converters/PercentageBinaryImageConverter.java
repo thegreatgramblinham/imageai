@@ -45,7 +45,7 @@ public class PercentageBinaryImageConverter implements IImageConverter {
     private ImageData<Float> run() {
 
         _image = MarvinImageIO.loadImage(_imgPath);
-        ImageData<Float> imgData = new ImageData<>(_image.getWidth(), _image.getHeight());
+        ImageData<Float> imgData = new ImageData<>(_image.getWidth(), _image.getHeight(), Float.class);
 
         for(int i = 0; i < _image.getWidth(); i++) {
 

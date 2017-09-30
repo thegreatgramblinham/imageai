@@ -7,11 +7,18 @@ public class ImageData<T> {
 
     //Private Variables
     private ArrayList<ArrayList<T>> _grid;
+    private Class<T> _dataType;
     private int _w;
     private int _h;
 
     //Constructor
-    public ImageData(int w, int h) {
+    /**
+     * Base ImageData Constructor
+     * @param w Width of the image.
+     * @param h Height of the image.
+     * @param dataType Class of the resulting T-type pixel.
+     */
+    public ImageData(int w, int h, Class<T> dataType) {
 
         _w = w;
         _h = h;
@@ -19,6 +26,8 @@ public class ImageData<T> {
 
         for(int i = 0; i < _h; i++)
             _grid.add(new ArrayList<>(_w));
+
+        _dataType = dataType;
     }
 
     //Public Methods
@@ -44,5 +53,9 @@ public class ImageData<T> {
     public int getHeight() {
 
         return _h;
+    }
+
+    public Class getDataClass() {
+        return _dataType;
     }
 }

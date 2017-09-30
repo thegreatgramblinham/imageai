@@ -1,7 +1,6 @@
 package sStudio2.Imaging.Network;
 
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Base for a node representing a single neuron. Where:
@@ -26,7 +25,7 @@ public abstract class NeuralNode<T, U> {
     }
 
     //Abstract Methods
-    public abstract U eval(T input);
-    public abstract void train(List<T> input, U output);
+    public abstract U eval(Iterable<T> input);
+    public abstract void train(Iterable<T> input, U output);
 
 }
