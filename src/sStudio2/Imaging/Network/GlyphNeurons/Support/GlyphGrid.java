@@ -3,8 +3,14 @@ package sStudio2.Imaging.Network.GlyphNeurons.Support;
 
 import java.util.*;
 
+/**
+ * Represents the outline and traversal order of a single glyph.
+ */
+public class GlyphGrid implements Iterable<GlyphMark> {
 
-public class GlyphGrid {
+    //Private Constants
+    private static final int GRID_WIDTH = 10;
+    private static final int GRID_HEIGHT = 10;
 
     //Private Variables
     private HashSet<GlyphMark> _markSet;
@@ -25,6 +31,11 @@ public class GlyphGrid {
         if(_traversalPriority.containsKey(traversalPriority))
             throw new IllegalArgumentException("Grid already contains item with identical priority.");
 
+        if(mark.getLocation().getX() < 0 || mark.getLocation().getX() > GRID_WIDTH)
+            throw new IndexOutOfBoundsException("GlyphMark X coordinate falls outside the 0.0 - 10.0 range.");
+        if(mark.getLocation().getY() < 0 || mark.getLocation().getY() > GRID_HEIGHT)
+            throw new IndexOutOfBoundsException("GlyphMark Y coordinate falls outside the 0.0 - 10.0 range.");
+
         _markSet.add(mark);
         _traversalPriority.put(traversalPriority, mark);
     }
@@ -39,5 +50,10 @@ public class GlyphGrid {
 
     public GlyphMark getMarkAtPriority(int priority) {
         return _traversalPriority.getOrDefault(priority, null);
+    }
+
+    @Override
+    public Iterator<GlyphMark> iterator() {
+        return _markSet.iterator();
     }
 }

@@ -5,7 +5,6 @@ import sStudio2.Imaging.Network.GlyphNeurons.Support.GlyphMark;
 import sStudio2.Imaging.Network.NeuralNode;
 
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Represents a single, 'T' character recognising neuron.
@@ -21,13 +20,13 @@ public class UCaseTNode extends NeuralNode<GlyphMark, Float> {
 
     //Public Methods
     @Override
-    public Float eval(GlyphMark input) {
+    public Float eval(Iterable<GlyphMark> input) {
 
         return null;
     }
 
     @Override
-    public void train(List<GlyphMark> input, Float output) {
+    public void train(Iterable<GlyphMark> input, Float output) {
 
         
     }

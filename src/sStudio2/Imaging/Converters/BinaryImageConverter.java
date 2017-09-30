@@ -50,7 +50,7 @@ public class BinaryImageConverter implements IImageConverter {
     private ImageData<Boolean> run() {
 
         _image = MarvinImageIO.loadImage(_imgPath);
-        ImageData<Color> imgData = new ImageData<>(_image.getWidth(), _image.getHeight());
+        ImageData<Color> imgData = new ImageData<>(_image.getWidth(), _image.getHeight(), Color.class);
 
         for(int i = 0; i < _image.getWidth(); i++) {
 
@@ -64,7 +64,7 @@ public class BinaryImageConverter implements IImageConverter {
             }
         }
 
-        ImageData<Boolean> binImageData = new ImageData<>(_image.getWidth(), _image.getHeight());
+        ImageData<Boolean> binImageData = new ImageData<>(_image.getWidth(), _image.getHeight(), Boolean.class);
         for(int i = 0; i < _image.getWidth(); i++) {
 
             for(int j = 0; j < _image.getHeight(); j++) {
